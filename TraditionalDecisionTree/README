@@ -83,6 +83,12 @@ The classifier will then output data about the amount of time required to
 build the training set, the performance of classifying the training set,
 then the performance of classifying the testing set.
 
+Performance:
+
+The standard decision tree showed very good performance as is, to me indicating
+a bug.  It only has false classifications on the house voting records, on all
+others it perfectly classifies the whole test set, but it does so very quickly.
+
 Reflections:
 
 This first classifier was fairly easy to build, but I forsee the genetic
