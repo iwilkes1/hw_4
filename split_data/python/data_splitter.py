@@ -1,6 +1,11 @@
 '''
 Created on Mar 25, 2015
-
+script to split data files into training and testing files.
+The split will have 30% of the lines going to the test set,
+and the remaining 70% going to the testing set.
+The names of the sets are specified as command line arguments,
+with the input file being the first argument, then the training
+data, and finally the testing data.
 @author: Ian Wilkes
 '''
 import sys

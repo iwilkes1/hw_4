@@ -15,6 +15,12 @@ import java.util.Scanner;
  */
 public class DecisionTreeClassifier {
 
+	/**
+	 * Main method for the decision tree classifier.
+	 * @param args the command line arguments to be used.  
+	 * The first argument should be a path to the training data, and the second
+	 * the path to the testing data.
+	 */
 	public static void main(String[] args) {
 		// checking the number of arguments
 		if (args.length != 2) {

@@ -4,10 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
+/**
+ * Class used to find the probabilities of various attribute values.
+ * @author Ian Wilkes
+ *
+ */
 public class IdentifierProbabilities {
 
 	private List<PriorityQueue<IdentifierProbabilityPair>> identifierData;
 
+	/**
+	 * Constructor for an IdentifierProbabilities object.
+	 * Calculates the probabilities of each value of each attribute
+	 * from a specified data set.
+	 * @param inputData the data set to find attribute probabilities of.
+	 */
 	public IdentifierProbabilities(List<CaseForClassification> inputData) {
 		identifierData = new ArrayList<PriorityQueue<IdentifierProbabilityPair>>();
 		

@@ -1,5 +1,11 @@
 package edu.jhu.cs.wilkes.cs335.assignment4.traditional;
 
+/**
+ * Class for putting String, double pairs into a
+ * priority queue.  
+ * @author Ian Wilkes
+ *
+ */
 public class IdentifierProbabilityPair implements Comparable<IdentifierProbabilityPair>{
 
 	private String identifierValue;

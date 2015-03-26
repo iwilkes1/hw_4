@@ -7,6 +7,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.PriorityQueue;
 
+/**
+ * Class which makes up the decision tree, and handles the creation
+ * of the tree, as well as classification of cases.
+ * @author Ian Wilkes
+ *
+ */
 public class DecisionTreeNode {
 	
 	private int decisionNumber;
