@@ -1,0 +1,18 @@
+'''
+Created on Mar 25, 2015
+
+@author: Ian Wilkes
+'''
+import sys
+import random.random
+
+
+with open(sys.argv[1], 'r') as input_file:
+    with open(sys.argv[2], 'r+') as training_file:
+        with open(sys.argv[3], 'r+') as testing_file:
+            for line in input_file:
+                if random.random() >= 0.7:
+                    training_file.write(line)
+                else:
+                    testing_file.write(line)
+            

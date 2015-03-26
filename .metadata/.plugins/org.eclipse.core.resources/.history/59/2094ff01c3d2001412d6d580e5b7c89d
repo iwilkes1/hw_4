@@ -1,0 +1,9 @@
+'''
+Created on Mar 25, 2015
+
+@author: Ian Wilkes
+'''
+import sys
+
+with open(sys.argv[1], 'r') as input_file:
+    print input_file.readline()

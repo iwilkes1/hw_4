@@ -1,0 +1,7 @@
+'''
+Created on Mar 25, 2015
+
+@author: Ian Wilkes
+'''
+import sys
+print sys.argv(1)

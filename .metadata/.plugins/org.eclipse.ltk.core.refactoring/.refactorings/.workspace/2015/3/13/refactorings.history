@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;split_data/python/data_splitter.py&apos;" deleteContents="false" description="Delete resource &apos;split_data/python/data_splitter.py&apos;" element1="/split_data/python/data_splitter.py" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1427269170056"/>
+</session>
