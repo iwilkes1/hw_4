@@ -89,6 +89,9 @@ src/ -- source code folder
 		down output of running the code on a few cases at once to
 		be used for the various experiments I have run.	
 
+		For each of the data sets provided, the code should take no more
+		than 30 seconds to run.
+
   bin/ -- a directory for .class files and other compiled code.
 
 How to run the code:
