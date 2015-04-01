@@ -145,3 +145,6 @@ Reflections:
 Both of the classifiers were fairly straightforward to build, but unfortunately due
 to other commitments for other projects, I was unable to do as much experimentation
 with the genetic tree as I would have liked, especially for the selection strategies.
+Also, due to the near perfect performance of my traditional classifier, and that it is
+much faster than the genetic classifier, it doesn't seem like GAs help very much.
+
