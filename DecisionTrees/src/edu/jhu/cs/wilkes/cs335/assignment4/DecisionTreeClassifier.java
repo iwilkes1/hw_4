@@ -73,14 +73,7 @@ public class DecisionTreeClassifier {
 		
 		System.out.println("training finished in " + (endTraining - start) + " ms");
 		System.out.println("Classifying training set");
-<<<<<<< HEAD
-		
-		//System.out.print((endTraining - start) + ",");
-=======
-		*/
-		System.out.println();
-		System.out.print((endTraining - start) + ",");
->>>>>>> af29c5c5e87ecf416a80aae58a1aa582dba914ea
+
 		classifyDataSet(trainingData, classificationTree, positiveClassification);
 		long endTrainingTest = System.currentTimeMillis();
 		//System.out.print(endTrainingTest - endTraining + ",");
@@ -92,22 +85,14 @@ public class DecisionTreeClassifier {
 		classifyDataSet(testingData, classificationTree, positiveClassification);
 	
 		long endTime = System.currentTimeMillis();
-<<<<<<< HEAD
+
 		System.out.println("classification of test set took: " + (endTime - endTrainingTest) + " ms");
 		//System.out.print(endTime - endTrainingTest);
 
-=======
-		//System.out.println("classification of test set took: " + (endTime - endTrainingTest) + " ms");
-		System.out.println(endTime - endTrainingTest);
+
+		System.out.println("classification of test set took: " + (endTime - endTrainingTest) + " ms");
+		//System.out.println(endTime - endTrainingTest);
 		
-		/*
-		//TODO remove unnecessary print
-		for (CaseForClassification element : trainingData) {
-			System.out.println(element);
-		}
-		*/
->>>>>>> af29c5c5e87ecf416a80aae58a1aa582dba914ea
-	
 	}
 
 	/**
@@ -185,12 +170,5 @@ public class DecisionTreeClassifier {
 				return toReturn;
 			}
 
-<<<<<<< HEAD
 }
-=======
-	public DecisionTreeClassifier() {
-		super();
-	}
 
-}
->>>>>>> af29c5c5e87ecf416a80aae58a1aa582dba914ea
