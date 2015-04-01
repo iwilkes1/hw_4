@@ -10,7 +10,7 @@ import edu.jhu.cs.wilkes.cs335.assignment4.AttributeInfo;
 import edu.jhu.cs.wilkes.cs335.assignment4.CaseForClassification;
 import edu.jhu.cs.wilkes.cs335.assignment4.DecisionTree;
 
-/** TODO
+/** 
  * Genetic Tree wrapper for the individual nodes.  Will handle the 
  * selection and training of the tree. 
  * @author Ian Wilkes
@@ -36,7 +36,10 @@ public class GeneticTree implements DecisionTree {
 	
 	private AttributeInfo attributes;
 	/**
-	 * Constructor for the Genetic tree.  Can set up a tree from the root and work down.
+	 * Constructor for the Genetic tree.  
+	 * Calls the node constructor to generate POPULATION random trees.
+	 * Once all are created, they are updated iterations times, at which
+	 * point the best tree is used.
 	 * @param trainingData the training data.
 	 */
 	public GeneticTree(List<CaseForClassification> trainingData, String positiveClassification) {

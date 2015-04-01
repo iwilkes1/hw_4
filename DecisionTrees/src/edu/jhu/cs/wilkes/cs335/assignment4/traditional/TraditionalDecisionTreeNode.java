@@ -28,7 +28,8 @@ public class TraditionalDecisionTreeNode implements DecisionTree {
 	private IdentifierProbabilities probabilities;
 	
 	/**
-	 * Constructor for a decision tree node.
+	 * Constructor for a decision tree node.  Recursively creates the
+	 * remainder of the tree based on the data passed to it. 
 	 * @param decisionNumber the attribute index to be used
 	 * @param remainingAttributes the list containing all the other attribute indices which are unused
 	 * @param parent the node which created this node
@@ -185,7 +186,7 @@ public class TraditionalDecisionTreeNode implements DecisionTree {
 		return toReturn;
 	}
 	
-	/** TODO add gain ratio
+	/**
 	 * Explores this attribute split, and checks the gain value, calculated from the difference
 	 * between the current entropy value of the system and the entropy of the child splits.  
 	 * @param separateChildren the split of all remaining cases based on one attribute.
@@ -195,8 +196,31 @@ public class TraditionalDecisionTreeNode implements DecisionTree {
 		return calculateCurrentEntropy() - calculateEntropyOfChildren(separateChildren);
 	}
 	
-	
+	/**
+	 * Calculates the gain ratio for the children at a certain node.
+	 * @param separateChildren the split of the children based on this attribute.
+	 * @return the gain ratio
+	 */
+	private double gainRatio(List<List<CaseForClassification>> separateChildren) {
+		return calculateGain(separateChildren)/informationValue(separateChildren);
+	}
 
+	/**
+	 * Calculates the information value of an attribute which has
+	 * created a given split.
+	 * @param separateChildren the split
+	 * @return the information value.
+	 */
+	private double informationValue(List<List<CaseForClassification>> separateChildren) {
+		double toReturn = 0;
+		double ratio;
+		for (List<CaseForClassification> split: separateChildren) {
+			ratio = split.size()/(1.0 * toBeClassified.size());
+			toReturn -= ratio * Math.log(ratio)/Math.log(2);
+		}
+		return toReturn;
+	}
+	
 	/**
 	 * Calculates the current entropy of the node.
 	 * @return the calculated entropy.
@@ -208,8 +232,8 @@ public class TraditionalDecisionTreeNode implements DecisionTree {
 		if (probability == 1 || probability == 0) {
 			return 0;
 		} else {
-			double result = probability * -1 * Math.log(probability);
-			result += (1 - probability) * -1 * Math.log((1 - probability));
+			double result = probability * -1 * Math.log(probability)/Math.log(2);
+			result += (1 - probability) * -1 * Math.log((1 - probability))/Math.log(2);
 			return result;
 		}
 	}
@@ -256,7 +280,7 @@ public class TraditionalDecisionTreeNode implements DecisionTree {
 		// checking all the splits.
 		for (int idx : remainingAttributes) {
 			currentSplit = separateChildren(idx);
-			currentGain = calculateGain(currentSplit);
+			currentGain = gainRatio(currentSplit);
 			if (currentGain > bestGain) {
 				bestGain = currentGain;
 				bestSplit = currentSplit;
