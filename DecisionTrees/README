@@ -84,7 +84,10 @@ src/ -- source code folder
 
 
   output/ -- a directory containing the output of various runs of the program.
-		The runs will be named based on their data.	
+		The runs will be named based on their data. There are also a 
+		fairly large collection of .csv files which are the stripped
+		down output of running the code on a few cases at once to
+		be used for the various experiments I have run.	
 
   bin/ -- a directory for .class files and other compiled code.
 

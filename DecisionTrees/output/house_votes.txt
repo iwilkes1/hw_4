@@ -1,0 +1,18 @@
+make: Entering directory `/home/iwilkes1/ai/assignment4/hw_4/DecisionTrees/src'
+training finished in 21 ms
+Classifying training set
+fp: 0 fn: 0 tp: 192 tn:109
+test data size: 301
+accuracy: 1.0
+precision: 1.0
+recall: 1.0
+classification of training set took: 3 ms
+Classifying test set
+fp: 8 fn: 4 tp: 71 tn:51
+test data size: 134
+accuracy: 0.9104477611940298
+precision: 0.8987341772151899
+recall: 0.9466666666666667
+classification of test set took: 6 ms
+classification of test set took: 6 ms
+make: Leaving directory `/home/iwilkes1/ai/assignment4/hw_4/DecisionTrees/src'
