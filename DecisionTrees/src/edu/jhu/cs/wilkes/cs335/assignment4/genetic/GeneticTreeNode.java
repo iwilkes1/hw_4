@@ -51,7 +51,7 @@ public class GeneticTreeNode implements Comparable<GeneticTreeNode>{
 		double observedValue = rand.nextDouble();
 		// this node is now a leaf. 
 		if ((observedValue < LEAF_PROBABILITY && depth > MIN_DEPTH) ||
-				(observedValue - depth/(1.0 * map.getNumAttributes()) < LEAF_PROBABILITY)) {
+				(observedValue - depth/(3.0) < LEAF_PROBABILITY)) {
 			children = null;
 			classification = map.getRandomClassification();
 			return;
