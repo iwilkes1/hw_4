@@ -1,14 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<item value="JavaSE-1.7" key="org.eclipse.jdt.ui.last.selected.execution.enviroment"/>
+	<item value="true" key="Replace"/>
+	<item value="true" key="Annotations"/>
+	<item value="true" key="Abstract"/>
+	<item value="true" key="Comments"/>
+	<item value="false" key="InstanceOf"/>
+	<item value="true" key="Public"/>
 	<item value="2" key="org.eclipse.jdt.ui.last.selected.jre.kind2"/>
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
+		<item value="false" key="renameSubpackages"/>
+		<item value="false" key="updateQualifiedNames"/>
+		<item value="*" key="patterns"/>
+		<item value="false" key="updateSimilarElements"/>
+		<item value="false" key="updateTextualMatches"/>
+		<item value="1" key="updateSimilarElementsMatchStrategy"/>
 	</section>
 	<section name="SelfEncapsulateFieldWizard">
 		<item value="true" key="GenerateJavadoc"/>
 	</section>
 	<section name="GenerateConstructorUsingFieldsSelectionDialog">
 		<item value="false" key="OmitCallToSuper"/>
+	</section>
+	<section name="DialogBounds_SuperInterfaceSelectionDialog">
+		<item value="478" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="679" key="DIALOG_HEIGHT"/>
+		<item value="111" key="DIALOG_X_ORIGIN"/>
+		<item value="-12" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item value="2" key="layout"/>
@@ -42,6 +61,10 @@
 		<item value="1" key="VisibilityModifier"/>
 		<item value="false" key="FinalModifier"/>
 	</section>
+	<section name="org.eclipse.jdt.internal.ui.dialogs.OpenTypeSelectionDialog2">
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History/&gt;" key="History"/>
+	</section>
 	<section name="RefactoringWizard.preview">
 		<item value="600" key="width"/>
 		<item value="400" key="height"/>
@@ -52,6 +75,8 @@
 		<item value="false" key="create_package_info_java"/>
 	</section>
 	<section name="quick_assist_proposal_size">
+		<item value="1032" key="size.y"/>
+		<item value="446" key="size.x"/>
 	</section>
 	<section name="completion_proposal_size">
 	</section>
