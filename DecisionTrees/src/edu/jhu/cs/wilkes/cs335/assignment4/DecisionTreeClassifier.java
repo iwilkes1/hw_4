@@ -69,6 +69,7 @@ public class DecisionTreeClassifier {
 		System.out.println("training finished in " + (endTraining - start) + " ms");
 		System.out.println("Classifying training set");
 		*/
+		System.out.println();
 		System.out.print((endTraining - start) + ",");
 		classifyDataSet(trainingData, classificationTree, positiveClassification);
 		long endTrainingTest = System.currentTimeMillis();
@@ -82,7 +83,7 @@ public class DecisionTreeClassifier {
 	
 		long endTime = System.currentTimeMillis();
 		//System.out.println("classification of test set took: " + (endTime - endTrainingTest) + " ms");
-		System.out.print(endTime - endTrainingTest);
+		System.out.println(endTime - endTrainingTest);
 		
 		/*
 		//TODO remove unnecessary print

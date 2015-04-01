@@ -18,7 +18,7 @@ SOURCES := $(call rwildcard,edu/jhu/,*.java)
 OBJECTS := $(patsubst %.java, $(BIN_DIR)/%.class, $(SOURCES))
 
 # Package that the driver class resides in
-PACKAGE = edu.jhu.cs.wilkes.cs335.assignment4.traditional
+PACKAGE = edu.jhu.cs.wilkes.cs335.assignment4
 #########
 
 JAVAC_FLAGS = -d $(BIN_DIR) -Xlint:all
@@ -51,7 +51,7 @@ docs: $(SOURCES) | $(DOC_DIR)
 
 # pass driver class object to JRE
 run:
-	$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS)  $(ARGS)
+	@$(JAVA) $(JAVA_FLAGS) $(PACKAGE).$(MAIN_CLASS)  $(ARGS)
 
 # clean up object files
 clean:
