@@ -155,11 +155,11 @@ public class DecisionTreeClassifier {
 				String currentLine;
 				
 				while(reader.hasNextLine()) {
-					currentLine = reader.nextLine();
+					currentLine = reader.nextLine().trim();
 					if (currentLine.contains(",")) {
 						identifiers = Arrays.asList(currentLine.split(","));
 					} else {
-						identifiers = Arrays.asList(currentLine.split(" "));	
+						identifiers = Arrays.asList(currentLine.split(" "));
 					}
 					toReturn.add(new CaseForClassification(identifiers.get(0), identifiers.subList(1, identifiers.size())));
 				}

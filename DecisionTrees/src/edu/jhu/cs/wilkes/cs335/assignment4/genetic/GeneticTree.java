@@ -20,7 +20,7 @@ public class GeneticTree implements DecisionTree {
 
 	private static final double TRAINING_PROPORTION = 1.0; // 1.0
 	private static final int POPULATION = 100;//100
-	private static final int ITERATIONS = 100;//100
+	private static final int ITERATIONS = 1000;//100
 	private static final double CROSSOVER_PROBABILITY = 0.70;//0.7
 	private static final double MUTATION_PROBABILITY = 0.01; //.1
 	private static final int CHANGE_CUTOFF = 10;//10
@@ -86,6 +86,7 @@ public class GeneticTree implements DecisionTree {
 			if (!Double.isNaN(currFitness) && (bestFitness == null || bestFitness < currFitness)) {
 				bestFitness = currFitness;
 				bestTree = new GeneticTreeNode(root, null);
+				System.out.println("new best tree, fitness: " + bestTree.getFitness());
 				sinceLastChange = 0;
 			}
 			orderedRoots.add(root);
@@ -188,10 +189,12 @@ public class GeneticTree implements DecisionTree {
 			}
 		}
 		//TODO insert other metrics here.
-	
+	return getAccuracy(truePositives, trueNegatives, falsePositives, falseNegatives);
+	/*
 	return getAccuracy(truePositives, trueNegatives, falsePositives, falseNegatives)
 				+getPrecision(truePositives, falsePositives) + getRecall(truePositives, falseNegatives)
 				- totalDepth/(10. * trainingData.size() * TRAINING_PROPORTION);
+*/
 
 	}
 
