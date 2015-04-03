@@ -70,27 +70,27 @@ public class DecisionTreeClassifier {
 			
 		}
 		long endTraining = System.currentTimeMillis();
-		
-		System.out.println("training finished in " + (endTraining - start) + " ms");
-		System.out.println("Classifying training set");
+		System.out.print(endTraining - start + ",");
+		//System.out.println("training finished in " + (endTraining - start) + " ms");
+		//System.out.println("Classifying training set");
 
 		classifyDataSet(trainingData, classificationTree, positiveClassification);
 		long endTrainingTest = System.currentTimeMillis();
-		//System.out.print(endTrainingTest - endTraining + ",");
+		System.out.print(endTrainingTest - endTraining + ",");
 		
-		System.out.println("classification of training set took: " + 
-				(endTrainingTest - endTraining) + " ms");
-		System.out.println("Classifying test set");
+		//System.out.println("classification of training set took: " + 
+		//				(endTrainingTest - endTraining) + " ms");
+		//System.out.println("Classifying test set");
 		
 		classifyDataSet(testingData, classificationTree, positiveClassification);
 	
 		long endTime = System.currentTimeMillis();
 
-		System.out.println("classification of test set took: " + (endTime - endTrainingTest) + " ms");
-		//System.out.print(endTime - endTrainingTest);
+		//System.out.println("classification of test set took: " + (endTime - endTrainingTest) + " ms");
+		System.out.println(endTime - endTrainingTest);
 
 
-		System.out.println("classification of test set took: " + (endTime - endTrainingTest) + " ms");
+		//System.out.println("classification of test set took: " + (endTime - endTrainingTest) + " ms");
 		//System.out.println(endTime - endTrainingTest);
 		
 	}
@@ -129,14 +129,14 @@ public class DecisionTreeClassifier {
 		double accuracy = (truePositives + trueNegatives)/ (1.0 * (truePositives + trueNegatives + falsePositives + falseNegatives));
 		double precision = truePositives/(1.0 * truePositives + falsePositives);
 		double recall = truePositives/(1.0 * truePositives + falseNegatives);
-		//System.out.print(accuracy + "," + precision + "," + recall + ",");
+		System.out.print(accuracy + "," + precision + "," + recall + ",");
 				
-		System.out.println("fp: " + falsePositives + " fn: " + falseNegatives
-				+ " tp: " + truePositives + " tn:" + trueNegatives);
-		System.out.println("test data size: " + testingData.size());
-		System.out.println("accuracy: " + accuracy);
-		System.out.println("precision: " + precision);
-		System.out.println("recall: " +  recall);
+		//System.out.println("fp: " + falsePositives + " fn: " + falseNegatives
+		//		+ " tp: " + truePositives + " tn:" + trueNegatives);
+		//System.out.println("test data size: " + testingData.size());
+		//System.out.println("accuracy: " + accuracy);
+		//System.out.println("precision: " + precision);
+		//System.out.println("recall: " +  recall);
 		
 	}
 
