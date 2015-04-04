@@ -71,6 +71,64 @@ trees.}
 \end{figure}
 
 
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=4in]{images/fitness_comparison.png}
+\end{center}
+\caption{This figure shows the results of using different fitness functions on
+the classification accuracy of the genetic tree.}
+\label{Classification Accuracies Using Various Fitness Functions}
+\end{figure}
+
+
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=4in]{images/population_comparison.png}
+\end{center}
+\caption{Here the performance of the genetic algorithm on different data sets
+is shown for different population sizes.  For four of the five data sets, the
+population must be above 10 individuals to get the best classification accuracy.
+}
+\label{Testing Times of Multiple Decision Trees}
+\end{figure}
+
+
+
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=4in]{images/iteration_comparison.png}
+\end{center}
+\caption{Here the performance of the genetic algorithm on different data sets
+is shown for different numbers of training iterations.  For four of the five 
+data sets, at least 100 iterations are required to get optimal classification 
+accuracies.  
+}
+\label{Testing Times of Multiple Decision Trees}
+\end{figure}
+
+
+%9
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=4in]{images/cutoff_accuracy.png}
+\end{center}
+\caption{This plot shows the effects of the cutoff value on the classification
+accuracy of the genetic algorithm for different data sets.  The accuracy seems
+to plateau after a certain cutoff value, indicating little effect.
+}
+\label{Testing Times of Multiple Decision Trees}
+\end{figure}
+
+%10
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=4in]{images/cutoff_time.jpg}
+\end{center}
+\caption{It can clearly be seen that the time required for training to finish
+increases drastically as the cutoff parameter increases for all data sets. 
+}
+\label{Testing Times of Multiple Decision Trees}
+\end{figure}
 
 \begin{table}
 \begin{center}
@@ -92,6 +150,17 @@ put multiple paragraphs of text in here.  Put the long version in the Results
 section, and reference the table from there.}
 \label{sometable}
 \end{table}
+
+For all the data shown in this section, the basline genetic algorithm used the 
+following parameters which were determined through minimal testing by hand.  
+All parameters remain constant, except in the case where they are being
+examined one by one.  The mutation and crossover probabilities were 0.01 and 
+0.7 respectively.  The population size was 50, and 100 iterations were 
+performed.  The default cutoff value was 50.
+The standard fitness function used was the sum of the classification accuracy,
+recall and precision for each iteration.  Finally, all data presented here is 
+the average of five trials for each data point.  
+
 From figure 1 we can see that the performances of the genetic, information
 gain and gain ratio based trees are all somewhat comparable.  The gain ratio
 tree seems to perform the best of the three in all but the house votes data set.
@@ -109,57 +178,38 @@ The information gain and gain ratio trees take orders of magnitued more time
 to classify their data on the monks-1, monks-2, and monks-3 data sets than the
 genetic tree.
 
+Figures 4 through 10 show the results from various experiments performed to 
+try to optimize the genetic tree shown above. The first of these is figure 4
+which shows the effect on classification accuracy of various fitness functions.
+It can clearly be seen that by not using the accuracy as one of the components
+of the fitness function, the resulting classification accuracy is greatly
+reduced, as seen in the cases where recall and precision were used as the 
+fitness metrics.
 
-The results section should contain your results.  It should \emph{not} contain
-your interpretation of those results.  That comes later.  This section should be
-made up primarily of graphs and tables that show your data.  You should also
-have a small amount of text describing what each of the tables and graphs shows,
-since the caption on the figures should be short.  Having text describing the
-specifics of the experiment that lead to that particular table would also be
-good.  For example,
+Another parameter which was varied was the population size within the genetic
+algorithm based tree.  From figure 5, it can be seen that below a certain 
+population threshold the classification performance decreases, yet above that
+threshold, an increase in population size does not neccesarily result in 
+improved classification performance. The same trend can be seen for the number
+of iterations used to train the tree in figure 6. Other than the monks-2 data 
+set, all data sets showed a classification accuracy increase by increasing the
+number of iterations from 10 to 100.
 
-\begin{quote}
-``Table \ref{sometable} shows the average results of the three algorithms on all
-the data sets.  The parameters used were $N=7$, and $k=3.27$; these parameters
-were found by hand, and little effort was made to tune them optimally.  Each
-algorithm was run three times on each of the seven data sets, and the resulting
-accuracy scores were averaged.''
-\end{quote}
+The effects of mutation and crossover probabilities can be seen in figures 7 
+and 8 respectively.  In both cases, the change in the probabilities seem to 
+cause different results for the different data sets.  Increasing the mutation
+seems to hurt the Mushroom accuracy, while it helps the monks-1 accuracy going
+from 0.03 to 0.05.  Similarly for crossover, accuracy is highest for monks-3 
+when the crossover probability is 0.9, but this value causes the accuracy for
+both the monks-1 and mushroom data sets to decresse significantly.  
 
-I'm not going to tell you exactly what tables or graphs you should have here,
-since it will depend a bit on your results.  You should be sure that your
-results section contains sufficient data to support your conclusions about the
-relative strengths and weaknesses of the different algorithms.  You should also
-be sure that your data is complete; that is, don't leave data out simply because
-it doesn't support the point you're trying to make.
+Finally, the influence of the cutoff parameter, which stops iteration if no
+improvements have been found after a given number of iterations, is shown in
+figures 9 and 10. In figure 9, the effect on accuracy can be seen to be minimal
+for high values of the cutoff parameter, as the performance for most data sets
+stays fairly constant. Figure 10 shows that while the performance may not 
+change, the computation time to train the GA increases substantially.    
 
-You should also be sure that your results are clear and interpretable.  Seven
-pages of raw binary data will do nothing to edify your reader.  Similarly, a
-1 inch square graph with 12 lines plotted on it will be difficult to extract
-meaning from, as will a graph with poor (or no) labels on the axes.  Your
-results should be legible both on screen and in hard copy.
-
-You don't want to present results that are just raw data, since that is hard to
-interpret.  But you don't want to over abstract, either, since that leads to
-results that have little or no meaning (eg. ``the average over all different
-data sets, algorithms, and parameters'' is a completely useless statistic for
-comparing algorithms).
-
-If you are trying do draw comparisons between certain things, try to make sure
-your results are presented in a way that allows the reader to easily compare
-them.  This might mean having two lines in the same graph, or it might mean
-having the columns you want to compare be adjacent in a table.  You want it to
-be easy for the reader to follow whatever reasoning you make in your Conclusions
-section by looking at your Results.  You don't want to redundancy (don't put the
-same data in multiple different tables), but you want the reader to be able to
-evaluate your conclusions without having to compare things that are three pages
-apart in your Results.
-
-You should probably have a page or two of results; one or two tables are unlikely to be
-sufficient to describe your experiments.  If they are, you need to do more
-experiments.  On the other hand, if you have more than three pages, you're
-probably not doing a good job of presenting your data in a clear and concise
-form.
 
 \section{Discussion}
 The discussion section is where you discuss your interpretation of the data you
