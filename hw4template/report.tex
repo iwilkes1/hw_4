@@ -106,6 +106,32 @@ accuracies.
 \label{Testing Times of Multiple Decision Trees}
 \end{figure}
 
+%7
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=4in]{images/mutation_comaprison.png}
+\end{center}
+\caption{This plot shows the effects of different mutation probabilities on
+the classification accuracy of the genetic algorithm for different data sets.  
+From this data, it seems that whether or not mutation is beneficial depends on
+the particular data set, with an increase helping in some cases, and hurting
+in others.
+}
+\label{Testing Times of Multiple Decision Trees}
+\end{figure}
+
+%8
+\begin{figure}[!htb]
+\begin{center}
+\includegraphics[width=4in]{images/crossover.png}
+\end{center}
+\caption{The above figure of the effects of different crossover probabilities on
+classification performance shows a similar trend to that of the mutation plot,
+with some data sets benefiting from increased crossover, while others are hurt.
+}
+\label{Testing Times of Multiple Decision Trees}
+\end{figure}
+
 
 %9
 \begin{figure}[!htb]
@@ -212,59 +238,82 @@ change, the computation time to train the GA increases substantially.
 
 
 \section{Discussion}
-The discussion section is where you discuss your interpretation of the data you
-presented in the results section.  This is where you tell the reader how great
-your algorithm is, and how interesting it is that \emph{this} performed better
-than \emph{that} on some given data set.  You can also speculate about causes
-for interesting behaviors; for example, if you think you might know why it fails
-so badly on some particular case, or if you have an insight into why it did well
-on another case.  You don't want to be making wild guesses, but as long as you
-make it clear that you are not making claims of factual proof, you can go out on
-a limb a little.  For example,
+\subsection{Algorithm Comparison}
+From the results shown above, it can be seen that the genetic algorithm does not
+perform as well as the gain ratio decision tree.  This tree almost across the
+board produced the best classificatio accuracies.  It is always equal to or
+better than the information gain tree, as it uses that same information gain,
+but can also determine which variables can acutally produce strong results 
+outside of the training set. This is a pitfall of the information gain tree
+which is particularly apparent on the monks-3 data set, where unique IDs are 
+provided for all cases.  Here the information gain tree picks that attribute
+as having by far the most information gain, without reallizing that this will
+overfit the data.  By instead using the gain ratio, this problem is overcome, 
+and an accuracy of approximately 90 percent is achieved on the very same data
+set by the gain ratio tree. The tradeoff however is really seen by looking at
+the testing and training time graphs. While the genetic tree takes significantly
+longer to train than the decision based models due to maintaining many trees and
+iterating on them many times to produce useful trees, its classification time
+is significantly smaller, presumably due to it creating smaller trees than the
+traditional algorithms.  The other possibility for this result would be that 
+the genetic tree was implemented more efficiently than the traditional trees,
+which is certainly a possibility, but seems unlikely.  It is unlikely, because
+their classification times are significantly different on the monks-1 and 
+monks-3 data sets while they both are implemented on almost exactly the same
+manner.  
+\subsection{Genetic Algorithm Parameters}
 
-\begin{quote}
-``In most cases, algorithm A outperforms algorithm B with a significance of
-99.8\%.  However, as can be seen from Figure \ref{somefigure}, when applied to
-the ``E. E. Smith'' data set, algorithm A does no better than random chance.  It
-seems likely that the failure of algorithm A to learn is due to the extremely
-sparse distribution of that data set.  Because of algorithm A's heavy reliance
-on data being densely sampled from the true underlying distribution, any sparse
-data set is likely to show this behavior.''
-\end{quote}
+Moving now to the effects of the various parameters of the genetic algorithm,
+it is as expected that the fitness function would have an extreme impact on
+the resulting classification accuracy, as with recall and precision, both
+false positives and negatives are not minimzied at the same time.  As such,
+only the cases where the accuracy was a part of the fitness function produced
+good results.  Perhaps the one exception to this is the monks-2 data set, where
+the recall fitness function performed equally well if not better than the sum
+and accuracy fitness functions.  
 
-Think about the kinds of questions that were posed in the written portions of
-homework assignments 1 and 2; these are the kinds of things you want to think
-about for your Discussion.
+Moving on to the population and iteration experiments, it is somewhat surprising
+that the performance does not improve with additional members or iterations.  
+It is also shocking that increasing either would decrease the accuracy, as 
+can be seen by using 500 iterations on the monks-1 data set.  This and other
+similar artifacts are probably due to the random nature of the genetic algorithm
+where in some cases, a very good individual is randomly created, so even
+the smaller population and iteration cases could have produced very high
+classification accuracies.  This could be partially resolved by running more
+trials to reduce the standard deviation from the expected value, which would
+presumably not have the same wavering charateristics.  It is also expected that
+if too few iterations are used, or too few members of a population are used, 
+that the performance will be poor, as each additional member allows for another
+random chance to get a good individual which will then be used to do the final
+classification.  For minimal iterations, there is not time to spread good
+traits to other members to optimize the resulting tree, and thus the same 
+behavior is expected. 
+
+Perhaps the most unexpected of all the trends is that neither the mutation rate
+or the crossover rate seem to have a strong effect on the classification
+accuracy.  This would seem to imply that the swapping of parts of the trees or
+changing random parameters had little effect on the resulting classifications, 
+indicating that it is simply the luck of the draw for good random trees at the
+first stage of the process which produces the best results.  This result is
+somewhat similar to that from the experiments with the population size and
+number of iterations, which both seem to plateau the performance after a 
+given number.  If crossover and mutation have little effect on the performance
+of a tree, then by iterating many times, there will be few changes, and as a
+result more iterations will not provide better classification results.
+
+Again the same trend can be seen in the cutoff data, as after the cutoff gets
+to a certain point, increasing it no longer has an effect on the performance.  
+Again, if the crossover and mutation do not result in improvements in 
+classification performance, then even given more iterations to improve,
+it is unlikely that the best tree will change, so higher cutoffs have little
+effect, other than to drastically increase the time required to train the set. 
+This also shows us that these algorithms are simply cutting off early, instead 
+of producing better trees with more iterations, either due to convergence, or
+the lack of effects from mutation and crossover.
+
+
 
 \section{Conclusions}
-The conclusion section should be relatively short, and should not be a summary
-of your paper.  It should, however, bring up what you learned and what impact
-your results have on the rest of the field (and society as a whole, if
-applicable, but don't overstate the impact of what you're doing).  You should
-conclude, and bring your paper to an end with any parting thoughts that are
-appropriate.
-
-Certain types of papers can be ended with a ``Summary'' section instead of a
-``Conclusions'' section, in which case you would, in fact, summarize the main
-points of your paper.  For this paper, you should write a Conclusions section,
-not a Summary.
-
-Conclusion also often contain information about what else you would like
-to do.  Sometimes this is a separate subsection, or even a section, entitled
-``Future Work.''  The basic idea here is to talk about what the next steps to
-take would be.  This is of benefit to others who are interested in your
-work and may want to help advance it.  It is also a chance for you to
-acknowledge shortcomings in your work; since we never have infinite time to
-prepare a paper, there are always more experiments that would have been nice to
-include.  If you list them as future work, then it at least makes it clear that
-you didn't do those things because you didn't have time, rather than because you
-didn't realise that they were important to do.
-
-In your paper, you should include a brief discussion of avenues for possible
-future work in your Conclusions section.  It should be tied in with the rest of
-your conclusion, and should not be an unrelated section tacked on the end (or
-the middle).
-
 % many different styles of bibliography are available; plain is fine for this
 % assignment
 \bibliographystyle{plain}
@@ -277,5 +326,3 @@ the middle).
 % end of your document.  Anything written after this tag will not be included in
 % the generated output.
 \end{document}
-
-For example, here is some text that will never show up.
